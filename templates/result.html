@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef1f5; /* Light gray background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0056b3; /* Darker blue for header */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result-box {
+            width: 50%; /* Slightly narrower for a cleaner look */
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        h3 {
+            font-size: 20px;
+            margin: 20px 0;
+            color: #0056b3; /* Consistent color with the header */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        li {
+            background: #6c757d; /* Gray for medicine items */
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background: #5a6268; /* Darker gray on hover */
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745; /* Green for buttons */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #0056b3; /* Darker blue for footer */
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Medical Diagnosis Result</h1>
+    </header>
+    
+    <div class="result-box">
+        <h2>Diagnosis: {{ diagnosis }}</h2>
+        <h3>Recommended Medicines:</h3>
+        <ul>
+            {% for medicine in medicines %}
+                <li>{{ medicine }}</li>
+            {% endfor %}
+        </ul>
+        <form action="index.html" method="get">
+            <button type="submit">Get Plan</button>
+        </form>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+        <p>
+            <a href="https://www.example.com/privacy">Privacy Policy</a> | 
+            <a href="https://www.example.com/terms">Terms of Service</a>
+        </p>
+    </footer>
+</body>
+</html>

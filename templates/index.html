@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet and Precautions Plan</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        label {
+            font-size: 1em;
+            color: #34495e;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result-container {
+            display: none;
+        }
+        .btn-link {
+            background-color: #2ecc71;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Input Form Container -->
+    <div class="container" id="form-container">
+        <h1>Diet and Precautions Plan Generator</h1>
+        <form id="plan-form">
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="symptoms">Symptoms (Optional):</label>
+            <input type="text" id="symptoms" placeholder="Enter your symptoms">
+
+            <label for="disease">Disease (Optional):</label>
+            <input type="text" id="disease" placeholder="Enter your disease">
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" required placeholder="Enter your location">
+
+            <label for="diet">Diet Preference:</label>
+            <select id="diet" required>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="non-vegetarian">Non-Vegetarian</option>
+            </select>
+
+            <button type="submit">Get Plan</button>
+        </form>
+    </div>
+
+    <!-- Result Output Container -->
+    <div class="container" id="result-container">
+        <h2>Your Diet and Precautions Plan</h2>
+        <div id="result"></div>
+        <button class="btn-link" id="medicine-btn">Medicine Recommendation Again</button>
+    </div>
+
+    <script>
+        document.getElementById('plan-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const symptoms = document.getElementById('symptoms').value;
+            const disease = document.getElementById('disease').value;
+            const location = document.getElementById('location').value;
+            const diet = document.getElementById('diet').value;
+
+            fetch('/get_plan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ age, gender, symptoms, disease, location, diet })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result) {
+                    // Hide the form container
+                    document.getElementById('form-container').style.display = 'none';
+
+                    // Display the result container
+                    document.getElementById('result-container').style.display = 'block';
+                    
+                    // Populate the result content
+                    document.getElementById('result').innerHTML = data.result;
+
+                    // Check if medical stores were found and display them
+                    if (data.medical_stores && data.medical_stores.length > 0) {
+                        let storesHtml = '<h3>Nearby Medical Stores:</h3><ul>';
+                        data.medical_stores.forEach(store => {
+                            storesHtml += `<li><strong>${store.name}</strong><br>${store.address}<br>Rating: ${store.rating}<br></li>`;
+                        });
+                        storesHtml += '</ul>';
+                        document.getElementById('result').innerHTML += storesHtml;
+                    } else {
+                        document.getElementById('result').innerHTML += '<p>No medical stores found nearby.</p>';
+                    }
+                } else {
+                    document.getElementById('result').innerHTML = `<p>${data.error}</p>`;
+                }
+            });
+        });
+
+        document.getElementById('medicine-btn').addEventListener('click', function() {
+            window.location.href = '/medicine_finder'; // Redirecting to the new route
+        });
+    </script>
+</body>
+</html>
