@@ -1,7 +1,7 @@
 # 📜 MIT License – Recommend-Medicine 💊
 
 🚀 **Project Name**: Recommend-Medicine  
-👤 **Author**: Suyash Kanhed
+👤 **Author**: Suyash
 📅 **Year**: 2024  
 🔓 **License Type**: MIT (Open Source, Permissive)
 
