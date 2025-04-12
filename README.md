@@ -218,7 +218,7 @@ This project is licensed under the MIT License. That means it's free to use, mod
 Have questions or want to collaborate? Reach out!
 
 - GitHub: [GHVAcTive](https://github.com/GHVAcTive)
-- Email: 📧 _your.email@example.com_
+- Email: 📧 _Suyashkanhed3@gmail.com_
 
 ---
 
