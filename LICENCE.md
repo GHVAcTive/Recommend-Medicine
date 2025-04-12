@@ -1,10 +1,15 @@
+---
+
 # 📜 MIT License – Recommend-Medicine 💊
 
 🚀 **Project Name**: Recommend-Medicine  
-👤 **Author**: Suyash Kanhed 
-📅 **Year**: 2024
+👤 **Author**: Suyash Kanhed  
+📅 **Year**: 2024  
 🔓 **License Type**: MIT (Open Source, Permissive)
 
+---
+
+This will make the text appear properly formatted in Markdown files. Let me know if you need any more adjustments! 😊
 ---
 
 ## 📄 Summary
