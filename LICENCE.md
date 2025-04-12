@@ -1,5 +1,3 @@
----
-
 # 📜 MIT License – Recommend-Medicine 💊
 
 🚀 **Project Name**: Recommend-Medicine  
