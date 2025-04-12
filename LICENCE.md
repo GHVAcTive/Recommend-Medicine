@@ -7,9 +7,6 @@
 
 ---
 
-This will make the text appear properly formatted in Markdown files. Let me know if you need any more adjustments! 😊
----
-
 ## 📄 Summary
 
 The **MIT License** is an incredibly permissive and flexible open-source license 📖. It allows anyone to freely **use**, **copy**, **modify**, and **distribute** the software 🧑‍💻, all while **limiting the liability** of the creator 📉. 
