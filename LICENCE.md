@@ -1,7 +1,7 @@
 # 📜 MIT License – Recommend-Medicine 💊
 
 🚀 **Project Name**: Recommend-Medicine  
-👤 **Author**: GHVAcTive  
+👤 **Author**: Suyash Kanhed 
 📅 **Year**: 2024  
 🔓 **License Type**: MIT (Open Source, Permissive)
 
