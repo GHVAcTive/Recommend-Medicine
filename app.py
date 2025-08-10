@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import joblib
 import pandas as pd
-import requests
+import requests // ApI Feture
 
 app = Flask(__name__)
 
@@ -66,3 +66,4 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
